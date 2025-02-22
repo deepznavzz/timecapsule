@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Capsule</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">
+            <img src="images/time-capsule-icon-design-isolated-600nw-2181178063.webp" alt="Digital Time Capsule Logo">
+            Time Capsule
+        </a>
+        <nav class="nav-links"></nav>
+    </header>
+
+    <div class="auth-container">
+        <h1 class="auth-title">Create New Capsule</h1>
+        <form id="capsuleForm">
+            <div class="form-group">
+                <label class="form-label">Title</label>
+                <input type="text" name="title" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Description</label>
+                <textarea name="description" class="form-input" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Unlock Date</label>
+                <input type="date" name="unlockDate" class="form-input" required>
+            </div>
+            <button type="submit" class="auth-btn">Create Capsule</button>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

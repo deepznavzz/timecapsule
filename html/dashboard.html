@@ -1,0 +1,41 @@
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('check_session.php')
+            .then(response => response.json())
+            .then(data => {
+                if (!data.valid) {
+                    localStorage.removeItem('userID');
+                    alert('Please login first!');
+                    window.location.href = 'login.html';
+                } else {
+                    // Fetch and display user's capsules
+                    const capsulesSection = document.querySelector('.capsules-section');
+                    const mockCapsules = [
+                        { title: 'My Graduation Memories', unlockDate: '2030-05-15', status: 'Locked' },
+                        { title: 'Family Vacation 2023', unlockDate: '2040-08-20', status: 'Locked' }
+                    ];
+                    mockCapsules.forEach(capsule => {
+                        const capsuleCard = document.createElement('div');
+                        capsuleCard.classList.add('capsule-card');
+                        capsuleCard.innerHTML = `
+                            <h3 class="capsule-title">${capsule.title}</h3>
+                            <div class="capsule-meta">
+                                <p><strong>Unlock Date:</strong> ${capsule.unlockDate}</p>
+                                <p><strong>Status:</strong> ${capsule.status}</p>
+                            </div>
+                            <div class="capsule-actions">
+                                <button class="action-btn view-btn">View Details</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </div>
+                        `;
+                        capsulesSection.appendChild(capsuleCard);
+                    });
+                }
+            });
+        
+        function logout() {
+            localStorage.removeItem('userID');
+            window.location.href = 'index.html';
+        }
+    });
+    </script>
