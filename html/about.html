@@ -1,1 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Digital Time Capsule</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .about-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
+        .about-hero {
+            position: relative;
+            text-align: center;
+            margin-bottom: 64px;
+            background: url('images/digitalimage.jpg') no-repeat center center/cover;
+            padding: 120px 20px;
+            color: var(--github-white);
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            z-index: 1;
+        }
+
+        .about-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-title {
+            font-size: 36px;
+            margin-bottom: 24px;
+            color: var(--github-white);
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: var(--github-gray);
+        }
+
+        .mission-statement {
+            background-color: var(--github-header-bg);
+            border: 1px solid var(--github-border);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .core-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin: 64px 0;
+        }
+
+        .value-card {
+            padding: 24px;
+            background-color: var(--github-header-bg);
+            border: 1px solid var(--github-border);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(88, 166, 255, 0.1);
+        }
+
+        .timeline {
+            border-left: 2px solid var(--github-border);
+            margin: 40px 0;
+            padding-left: 32px;
+        }
+
+        .timeline-event {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-event::before {
+            content: "";
+            position: absolute;
+            left: -36px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--github-green);
+            border-radius: 50%;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin: 64px 0;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 24px;
+            background-color: var(--github-header-bg);
+            border: 1px solid var(--github-border);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(88, 166, 255, 0.1);
+        }
+
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 2px solid var(--github-green);
+        }
+
+        .auth-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--github-header-bg);
+            border: 1px solid var(--github-border);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            margin: 64px 0;
+        }
+
+        .cta-btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .primary-cta {
+            background-color: var(--github-green);
+            color: var(--github-white);
+        }
+
+        .primary-cta:hover {
+            background-color: #2ea043; /* Slightly lighter green */
+            transform: translateY(-1px);
+        }
+
+        .signup-section {
+            position: relative;
+            text-align: center;
+            margin-top: 64px;
+            background: url('images/signup.jpg') no-repeat center center/cover;
+            padding: 120px 20px;
+            color: var(--github-white);
+        }
+
+        .signup-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            z-index: 1;
+        }
+
+        .signup-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .signup-title {
+            font-size: 36px;
+            margin-bottom: 24px;
+            color: var(--github-white);
+        }
+
+        .signup-description {
+            font-size: 20px;
+            color: var(--github-gray);
+        }
+
+        .signup-content .cta-btn {
+            margin-top: 1cm; /* Add margin-top to move the button down */
+        }
+
+        .footer {
+            background-color: var(--github-header-bg);
+            color: var(--github-white);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: var(--github-green);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .logo img {
+            height: 40px;
+            vertical-align: middle;
+            border-radius: 8px; /* Add rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">
+            <img src="images/time-capsule-icon-design-isolated-600nw-2181178063.webp" alt="Digital Time Capsule Logo">
+            Digital Time Capsule
+        </a>
+        <nav class="nav-links">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="new-capsule.html" class="nav-link">New Capsule</a>
+            <a href="about.html" class="nav-link active">About</a>
+        </nav>
+    </header>
+
+    <div class="about-container">
+        <div class="about-hero">
+            <div class="about-content">
+                <h1 class="about-title">Preserving Digital Heritage for Future Generations</h1>
+                <p class="hero-description">Secure. Reliable. Timeless.</p>
+            </div>
+        </div>
+
+        <div class="mission-statement">
+            <h2>Our Mission</h2>
+            <p>At Digital Time Capsule, we empower individuals and organizations to preserve digital content with military-grade security, ensuring your most valuable memories and important documents remain intact and accessible for decades to come.</p>
+        </div>
+
+        <div class="core-values">
+            <div class="value-card">
+                <h3>🔒 Unparalleled Security</h3>
+                <p>Utilizing AES-256 encryption and decentralized blockchain storage to protect your digital assets.</p>
+            </div>
+            <div class="value-card">
+                <h3>⏳ Long-Term Preservation</h3>
+                <p>Guaranteed data integrity with automated format migration and redundancy across multiple secure servers.</p>
+            </div>
+            <div class="value-card">
+                <h3>🌍 Sustainable Archiving</h3>
+                <p>Carbon-neutral data centers powered by 100% renewable energy sources.</p>
+            </div>
+        </div>
+
+        <h2>Our Journey</h2>
+        <div class="timeline">
+            <div class="timeline-event">
+                <h3>2020 - Foundation</h3>
+                <p>Founded by digital preservation experts from MIT and Stanford</p>
+            </div>
+            <div class="timeline-event">
+                <h3>2022 - ISO Certification</h3>
+                <p>Achieved ISO 27001 certification for information security management</p>
+            </div>
+            <div class="timeline-event">
+                <h3>2023 - 1M+ Users</h3>
+                <p>Served over 1 million users across 45 countries</p>
+            </div>
+        </div>
+
+        <h2>Leadership Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="https://via.placeholder.com/120" alt="Dr. Navdeep Sripathi" class="team-photo">
+                <h3>Dr. Navdeep Sripathi</h3>
+                <p>CEO & Co-Founder</p>
+                <p>PhD in Computer Science, MIT</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/120" alt="Shiva Sai" class="team-photo">
+                <h3>Shiva Sai</h3>
+                <p>CTO</p>
+                <p>Former Head of Security at CloudArchive Inc.</p>
+            </div>
+        </div>
+
+        <div class="auth-container">
+            <h2>Technical Specifications</h2>
+            <ul>
+                <li>🔐 AES-256 Encryption with RSA-4096 Key Exchange</li>
+                <li>🗄️ Multi-region redundant storage with 99.999% Uptime SLA</li>
+                <li>📁 Support for 150+ file formats with cryptographic proof of existence</li>
+                <li>🔍 Advanced data integrity and security measures</li>
+            </ul>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="signup.html" class="cta-btn primary-cta">Start Preserving Today</a>
+        </div>
+
+        <div class="signup-section">
+            <div class="signup-content">
+                <h2 class="signup-title">Join Us Today</h2>
+                <a href="signup.html" class="cta-btn primary-cta">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Digital Time Capsule. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a> |
+            <a href="contact.html">Contact Us</a>
+        </p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
