@@ -1,0 +1,275 @@
+:root {
+    --github-black: #0d1117; /* Dark background */
+    --github-white: #ffffff; /* White text */
+    --github-gray: #8b949e; /* Gray text */
+    --github-blue: #58a6ff; /* Blue links */
+    --github-green: #238636; /* Green buttons */
+    --github-border: #30363d; /* Border color */
+    --github-header-bg: #161b22; /* Header background */
+    --github-accent: #1f6feb; /* Accent color */
+    --github-red: #f85149; /* Red for errors */
+    --github-bg-soft: #1c2128; /* Softer background */
+    --github-text-light: #f0f6fc; /* Light text for better readability */
+    --github-gold: #FFD700; /* Gold color */
+    --github-platinum: #E5E4E2; /* Platinum color */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--github-bg-soft); /* Softer background */
+    color: var(--github-text-light); /* Light text for better readability */
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Common header styles */
+.header {
+    background-color: var(--github-header-bg);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--github-border);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--github-white);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-link {
+    color: var(--github-gray);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--github-white);
+}
+
+/* Common auth container styles */
+.auth-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 32px;
+    background-color: var(--github-header-bg);
+    border: 1px solid var(--github-border);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.auth-title {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 24px;
+    color: var(--github-white);
+}
+
+/* Form elements */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: var(--github-gray);
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: var(--github-black);
+    border: 1px solid var(--github-border);
+    border-radius: 6px;
+    color: var(--github-text-light);
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--github-blue);
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--github-green);
+    color: var(--github-white);
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.auth-btn:hover {
+    background-color: #2ea043; /* Slightly lighter green */
+    transform: translateY(-1px);
+}
+
+.auth-footer {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--github-border);
+    text-align: center;
+    font-size: 14px;
+    color: var(--github-gray);
+}
+
+.auth-link {
+    color: var(--github-blue);
+    text-decoration: none;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}
+
+/* Error messages */
+.error-message {
+    color: var(--github-red);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* Additional improvements for a dignified look */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--github-white);
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 16px;
+    color: var(--github-gray);
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: var(--github-header-bg);
+    border: 1px solid var(--github-border);
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--github-white);
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 14px;
+    color: var(--github-gray);
+}
+
+/* Gold and Platinum Text Styles */
+.gold-text {
+    color: var(--github-gold);
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.platinum-text {
+    color: var(--github-platinum);
+    text-shadow: 0 0 5px rgba(229, 228, 226, 0.8);
+}
+
+/* Bright White Text Style */
+.bright-white-text {
+    color: var(--github-white);
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+/* Plan button styles */
+.plan-btn {
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: #28a745; /* Green background */
+    color: #000; /* Black text color */
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: 2px solid transparent; /* Add a border to ensure visibility */
+}
+
+.plan-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+    border-color: #1e7e34; /* Border color on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+    color: #000; /* Ensure text remains black on hover */
+}
+
+.plan-btn:active {
+    background-color: #1e7e34; /* Even darker green when clicked */
+    border-color: #1c7430; /* Border color when clicked */
+    transform: translateY(0); /* Reset lift when clicked */
+    color: #000; /* Ensure text remains black when clicked */
+}
+
+/* Media queries for pricing title and description */
+@media (max-width: 768px) {
+    .pricing-title {
+        font-size: 28px;
+        color: #000; /* Ensure brightness on smaller screens */
+    }
+
+    .pricing-description {
+        font-size: 16px;
+        color: #444; /* Ensure brightness on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-title {
+        font-size: 24px;
+        color: #000; /* Ensure brightness on smaller screens */
+    }
+
+    .pricing-description {
+        font-size: 14px;
+        color: #444; /* Ensure brightness on smaller screens */
+    }
+}

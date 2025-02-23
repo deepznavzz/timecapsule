@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pricing plans for Digital Time Capsule - Secure your memories with the perfect plan.">
+    <title>Pricing - Digital Time Capsule</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+            font-family: 'Inter', sans-serif;
+            color: #e6e6e6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Simplified Particle Background */
+        #particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            will-change: transform;
+        }
+        .particle {
+            position: absolute;
+            background: rgba(74, 144, 226, 0.5);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 0.4; }
+            100% { transform: translateY(-10vh); opacity: 0.8; }
+        }
+
+        /* Optimized Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header */
+        .header {
+            background: rgba(20, 20, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 10;
+            position: sticky;
+            top: 0;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        .logo:hover {
+            color: #6ab0ff;
+        }
+        .logo img {
+            width: 40px;
+            margin-right: 12px;
+            filter: drop-shadow(0 0 5px rgba(74, 144, 226, 0.6));
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-link {
+            color: #e6e6e6;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: rgba(74, 144, 226, 0.2);
+            color: #ffffff;
+        }
+
+        /* Pricing Container */
+        .pricing-container {
+            background: rgba(30, 30, 45, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 1280px;
+            margin: 60px auto;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 10;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Pricing Header */
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .pricing-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1.5px;
+            background: linear-gradient(45deg, #4a90e2, #9bd3ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .pricing-description {
+            font-size: 16px;
+            color: #d0d0d0;
+            margin-top: 10px;
+        }
+
+        /* Pricing Plans */
+        .pricing-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .plan-card {
+            background: rgba(40, 40, 55, 0.95);
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform;
+        }
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+        }
+        .plan-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        .plan-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #7bc3ff;
+            margin-bottom: 10px;
+        }
+        .plan-duration {
+            font-size: 14px;
+            color: #d0d0d0;
+            margin-bottom: 20px;
+        }
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .plan-features li {
+            font-size: 14px;
+            color: #d0d0d0;
+            margin-bottom: 8px;
+        }
+        .plan-btn {
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #4a90e2, #7bc3ff);
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 3px 10px rgba(74, 144, 226, 0.4);
+        }
+        .plan-btn:hover {
+            background: linear-gradient(45deg, #3a7bd5, #5aaaff);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(20, 20, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            text-align: center;
+            font-size: 14px;
+            color: #a0a0a0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 10;
+            animation: fadeInUp 1s ease-out;
+        }
+        .footer a {
+            color: #9bd3ff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .footer a:hover {
+            color: #5aaaff;
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .pricing-container {
+                padding: 30px;
+                margin: 40px auto;
+            }
+            .pricing-title {
+                font-size: 28px;
+            }
+            .pricing-description {
+                font-size: 14px;
+            }
+            .plan-title {
+                font-size: 18px;
+            }
+            .plan-price {
+                font-size: 24px;
+            }
+            .plan-duration, .plan-features li {
+                font-size: 12px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pricing-container {
+                padding: 20px;
+                margin: 20px auto;
+            }
+            .pricing-title {
+                font-size: 24px;
+            }
+            .pricing-description {
+                font-size: 12px;
+            }
+            .plan-title {
+                font-size: 16px;
+            }
+            .plan-price {
+                font-size: 20px;
+            }
+            .plan-duration, .plan-features li {
+                font-size: 10px;
+            }
+            .plan-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles"></div>
+
+    <div class="pricing-container">
+        <header class="header">
+            <a href="index.html" class="logo">
+                <img src="images/logo3.jpg" alt="Digital Time Capsule Logo" loading="lazy">
+                Digital Time Capsule
+            </a>
+            <nav class="nav-links">
+                <a href="dashboard.php" class="nav-link">Dashboard</a>
+                <a href="new-capsule.html" class="nav-link">New Capsule</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+            </nav>
+        </header>
+
+        <div class="pricing-header">
+            <h1 class="pricing-title">Choose Your Plan</h1>
+            <p class="pricing-description">
+                Select a plan that fits your needs and preserve your memories securely.
+            </p>
+        </div>
+
+        <div class="pricing-plans">
+            <!-- 6 Months Plan -->
+            <div class="plan-card">
+                <h2 class="plan-title">6 Months</h2>
+                <p class="plan-price">₹999</p>
+                <p class="plan-duration">6 months of secure storage</p>
+                <ul class="plan-features">
+                    <li>Up to 1GB storage</li>
+                    <li>Basic encryption</li>
+                    <li>Email reminders</li>
+                </ul>
+                <a href="#" class="plan-btn">Choose Plan</a>
+            </div>
+
+            <!-- 1 Year Plan -->
+            <div class="plan-card">
+                <h2 class="plan-title">1 Year</h2>
+                <p class="plan-price">₹1,499</p>
+                <p class="plan-duration">1 year of secure storage</p>
+                <ul class="plan-features">
+                    <li>Up to 5GB storage</li>
+                    <li>Advanced encryption</li>
+                    <li>Email reminders</li>
+                </ul>
+                <a href="#" class="plan-btn">Choose Plan</a>
+            </div>
+
+            <!-- 5 Years Plan -->
+            <div class="plan-card">
+                <h2 class="plan-title">5 Years</h2>
+                <p class="plan-price">₹3,749</p>
+                <p class="plan-duration">5 years of secure storage</p>
+                <ul class="plan-features">
+                    <li>Up to 10GB storage</li>
+                    <li>Military-grade encryption</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="#" class="plan-btn">Choose Plan</a>
+            </div>
+
+            <!-- 10 Years Plan -->
+            <div class="plan-card">
+                <h2 class="plan-title">10 Years</h2>
+                <p class="plan-price">₹7,499</p>
+                <p class="plan-duration">10 years of secure storage</p>
+                <ul class="plan-features">
+                    <li>Up to 20GB storage</li>
+                    <li>Military-grade encryption</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="#" class="plan-btn">Choose Plan</a>
+            </div>
+
+            <!-- 25 Years (Silver Jubilee) Plan -->
+            <div class="plan-card">
+                <h2 class="plan-title">25 Years</h2>
+                <p class="plan-price">₹14,999</p>
+                <p class="plan-duration">25 years of secure storage</p>
+                <ul class="plan-features">
+                    <li>Up to 50GB storage</li>
+                    <li>Military-grade encryption</li>
+                    <li>Dedicated account manager</li>
+                </ul>
+                <a href="#" class="plan-btn">Choose Plan</a>
+            </div>
+
+            <!-- 50 Years (Gold) Plan -->
+            <div class="plan-card">
+                <h2 class="plan-title">50 Years</h2>
+                <p class="plan-price">₹37,499</p>
+                <p class="plan-duration">50 years of secure storage</p>
+                <ul class="plan-features">
+                    <li>Up to 100GB storage</li>
+                    <li>Military-grade encryption</li>
+                    <li>Dedicated account manager</li>
+                </ul>
+                <a href="#" class="plan-btn">Choose Plan</a>
+            </div>
+
+            <!-- 100 Years (Platinum) Plan -->
+            <div class="plan-card">
+                <h2 class="plan-title">100 Years</h2>
+                <p class="plan-price">₹74,999</p>
+                <p class="plan-duration">100 years of secure storage</p>
+                <ul class="plan-features">
+                    <li>Unlimited storage</li>
+                    <li>Military-grade encryption</li>
+                    <li>Dedicated account manager</li>
+                </ul>
+                <a href="#" class="plan-btn">Choose Plan</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Digital Time Capsule. All rights reserved. <a href="privacy-policy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // Optimized Particle Background
+        function createParticles() {
+            const particleContainer = document.getElementById('particles');
+            const particleCount = 30;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                const size = Math.random() * 3 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
+                particleContainer.appendChild(particle);
+            }
+        }
+        window.addEventListener('load', () => {
+            if (window.innerWidth > 768) createParticles(); // Only on desktop
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check authentication status
+            const currentUser = localStorage.getItem('currentUser');
+            const planButtons = document.querySelectorAll('.plan-btn');
+
+            planButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    if (!currentUser) {
+                        e.preventDefault();
+                        alert('Please login first!');
+                        window.location.href = 'login.html';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
